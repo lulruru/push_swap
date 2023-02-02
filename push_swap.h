@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:38:34 by russelenc         #+#    #+#             */
-/*   Updated: 2023/01/27 11:57:52 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/02 13:23:09 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	addback(p_list **lst, p_list *new);
 int		lstsize(p_list *lst);
 
 /*          UTILS          */
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 long	ft_atol(char *str);
 
