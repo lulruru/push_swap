@@ -6,12 +6,13 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:20:04 by russelenc         #+#    #+#             */
-/*   Updated: 2023/01/27 11:51:20 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/03 14:48:48 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
+/* Intervertit les 2 premiers éléments au sommet de la pile. 
+Ne fait rien s’il n’y en a qu’un ou aucun. */
 void ft_swap(p_list **stack)
 {
 	int	tmp;

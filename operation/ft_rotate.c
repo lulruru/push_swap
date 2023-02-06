@@ -1,37 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 11:51:40 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/05 20:20:15 by russelenc        ###   ########.fr       */
+/*   Created: 2023/02/03 13:33:56 by russelenc         #+#    #+#             */
+/*   Updated: 2023/02/03 15:31:37 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_push(p_list **src, p_list **target)
+/*Décale d’une position vers le haut tous les élements de la pile.
+Le premier élément devient le dernier.*/
+void ft_rotate(p_list **src)
 {
-	p_list *tmp;
-	p_list *elem;
+	p_list	*tmp;
+	int		first;
 
-	if (!*src)
+	if(!src || !(*src)->next)
 		return ;
-	elem = (*src)->next;
 	tmp = *src;
-	tmp->next = *target;
-	*target = tmp;
-	*src = elem;
+	first = tmp->data;
+	while (tmp->next)
+	{
+		tmp->data = tmp ->next->data;
+		tmp = tmp->next;
+	}
+	tmp->data = first;
 }
 
-void push (p_list **src, p_list **target, char n)
+void rotate(p_list **stack, char n)
 {
-	ft_push(src, target);
-	ft_putchar_fd('p', 1);
+	ft_rotate(stack);
+	ft_putchar_fd('r', 1);
 	ft_putchar_fd(n, 1);
 	ft_putchar_fd('\n', 1);
+}
+
+void rotate2(p_list **stack_a, p_list **stack_b)
+{
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
+	ft_putstr_fd("rr\n", 1);
 }
 
 int main(int argc, char **argv)
@@ -54,7 +66,7 @@ int main(int argc, char **argv)
         pile_a = temp;
     }
 
-    for (i = 3; i < 6; i++)
+    for (i = 4; i <= 6; i++)
     {
         temp = (p_list *)malloc(sizeof(p_list));
         temp->data = atoi(argv[i]);
@@ -70,9 +82,9 @@ int main(int argc, char **argv)
     printf("Pile b avant : ");
     for (temp = pile_b; temp; temp = temp->next)
         printf("%d ", temp->data);
-    printf("\n");
+    printf("\n\n");
 
-    push(&pile_a, &pile_b, 'b');
+    ft_rotate(&pile_a);
 
     printf("Pile a après : ");
     for (temp = pile_a; temp; temp = temp->next)
@@ -85,4 +97,4 @@ int main(int argc, char **argv)
     printf("\n");
 
     return 0;
-} */
+}

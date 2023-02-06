@@ -6,7 +6,7 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:56:32 by russelenc         #+#    #+#             */
-/*   Updated: 2023/01/27 10:58:35 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/05 14:10:02 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 p_list *ft_lstlast(p_list *liste)
 {
 	if (!liste)
-		return ;
-	while (liste)
+		return (NULL);
+	while (liste->next)
 		liste = liste->next;
 	return (liste);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:38:34 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/02 13:23:09 by rencarna         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:37:04 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ long	ft_atol(char *str);
 void swapboth(p_list **stack_a, p_list **stack_b);
 void swap(p_list **stack, char c);
 void ft_swap(p_list **stack);
+void ft_rotate(p_list **src);
+void rotate(p_list **stack, char n);
+void rotate2(p_list **stack_a, p_list **stack_b);
+void ft_push(p_list **src, p_list **target);
+void push(p_list **src, p_list **target, char n);
 
 int	ft_pars(int ac, char **av);
 

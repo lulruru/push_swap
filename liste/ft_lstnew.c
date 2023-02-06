@@ -6,11 +6,11 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:42:35 by russelenc         #+#    #+#             */
-/*   Updated: 2023/01/27 10:47:55 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/05 14:03:07 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap/push_swap.h"
+#include "../push_swap.h"
 
 p_list *ft_lstnew(int content)
 {
