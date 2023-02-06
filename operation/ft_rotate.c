@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:33:56 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/03 15:31:37 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/06 15:23:16 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /*Décale d’une position vers le haut tous les élements de la pile.
 Le premier élément devient le dernier.*/
-void ft_rotate(p_list **src)
+void	ft_rotate(p_list **src)
 {
 	p_list	*tmp;
 	int		first;
 
-	if(!src || !(*src)->next)
+	if (!src || !(*src)->next)
 		return ;
 	tmp = *src;
 	first = tmp->data;
@@ -31,7 +31,7 @@ void ft_rotate(p_list **src)
 	tmp->data = first;
 }
 
-void rotate(p_list **stack, char n)
+void	rotate(p_list **stack, char n)
 {
 	ft_rotate(stack);
 	ft_putchar_fd('r', 1);
@@ -39,14 +39,14 @@ void rotate(p_list **stack, char n)
 	ft_putchar_fd('\n', 1);
 }
 
-void rotate2(p_list **stack_a, p_list **stack_b)
+void	rotate2(p_list **stack_a, p_list **stack_b)
 {
 	ft_rotate(stack_a);
 	ft_rotate(stack_b);
 	ft_putstr_fd("rr\n", 1);
 }
 
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     p_list *pile_a = NULL;
     p_list *pile_b = NULL;
@@ -97,4 +97,4 @@ int main(int argc, char **argv)
     printf("\n");
 
     return 0;
-}
+} */

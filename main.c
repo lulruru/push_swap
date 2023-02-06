@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:59:34 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/05 20:13:05 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/06 17:09:03 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,48 +28,41 @@
 	new->next = NULL;
 	return (new);
 } */
-
-p_list *ft_fusion(int ac, char **av)
+void formatcheck(int ac, char **av)
 {
-	p_list *liste;
-	p_list *g;
-	p_list *d;
-	int l;
-	int	i;
-	
-	i = 1;
-	g = 0;
-	l = ac;
-	while (i <= l / 2)
+	if (ac == 2)
 	{
-		liste = ft_lstnew(atoi(av[i]));
-		addback(&g, liste);
-		i++;
+		
 	}
-	g->next = NULL;
-	return(g);
-	
-	
 }
 
 int main(int ac, char **av)
 {
-	p_list *new;
-	p_list *pile_a;
-	p_list *after;
-	int i = 1;
-	pile_a = 0;
-/* 	while(i < ac)
+	p_list	*pile_a;
+	p_list	*pile_b;
+	int		i;
+
+	i = 1;
+	if (ft_pars(ac, av))
 	{
-		new = ft_lstnew(atoi(av[i]));
-		addback(&pile_a, new);
-		i++;
-	} */
-	after = ft_fusion(ac,av);
-	while (after)
-	{
-		printf("%d ", after->data);
-		after = after->next;
+		printf("error");
 	}
-	
+	else 
+	{
+		pile_b = NULL;
+		pile_a = do_list(ac, av);
+		while (pile_a)
+		{
+			printf("%d ", pile_a->data);
+			pile_a = pile_a->next;
+		}
+		printf("\n");
+		algo3 (pile_a);
+		while (pile_a)
+		{
+			printf("%d ", pile_a->data);
+			pile_a = pile_a->next;
+		}
+	}
+	return (0);
 }

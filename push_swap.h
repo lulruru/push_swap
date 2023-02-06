@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:38:34 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/03 14:37:04 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/06 16:59:31 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		lstsize(p_list *lst);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 long	ft_atol(char *str);
+p_list *do_list(int ac, char **av);
 
 /*          STACK UTILS         */
 void swapboth(p_list **stack_a, p_list **stack_b);
@@ -47,6 +48,7 @@ void ft_push(p_list **src, p_list **target);
 void push(p_list **src, p_list **target, char n);
 
 int	ft_pars(int ac, char **av);
+void	algo3(p_list **stack_a);
 
 
 #endif

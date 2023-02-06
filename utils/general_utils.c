@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:19:26 by rencarna          #+#    #+#             */
-/*   Updated: 2023/02/02 18:01:11 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/06 17:10:51 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putstr_fd(char *str, int fd)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		write(fd, &str[i], 1);
 		i++;
@@ -31,9 +31,9 @@ void	ft_putchar_fd(char c, int fd)
 
 long	ft_atol(char *str)
 {
-	int	i;
-	int sign;
-	int long r;
+	int			i;
+	int			sign;
+	int long	r;
 
 	i = 0;
 	sign = 1;

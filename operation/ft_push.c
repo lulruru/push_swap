@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:51:40 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/05 20:20:15 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/06 15:33:07 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void push (p_list **src, p_list **target, char n)
 	ft_putchar_fd('\n', 1);
 }
 
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     p_list *pile_a = NULL;
     p_list *pile_b = NULL;
@@ -85,4 +85,4 @@ int main(int argc, char **argv)
     printf("\n");
 
     return 0;
-} */
+}  */
