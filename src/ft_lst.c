@@ -6,7 +6,7 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:01:19 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/07 17:16:14 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/18 19:23:41 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ p_list	*ft_lstnew(int content)
 	if(!new)
 		return (NULL);
 	new->data = content;
+	new->index = 0;
+	new->pos = -1;
+	new->target = -1;
+	new->cost_a = -1;
+	new->cost_b = -1;
 	new->next = NULL;
 	return (new);
 }

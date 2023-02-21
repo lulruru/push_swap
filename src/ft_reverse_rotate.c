@@ -3,30 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:37:11 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/06 15:29:00 by rencarna         ###   ########.fr       */
+/*   Updated: 2023/02/18 17:57:13 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+p_list *stack_before_last(p_list *stack)
+{
+	while(stack && stack->next && stack->next->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
 /*Décale d’une position vers le bas tous les élements de
 la pile . Le dernier élément devient le premier*/
-void ft_reverse_rotate(p_list **src)
+void ft_reverse_rotate(p_list **stack)
 {
-	p_list	*temp;
-	p_list	*last;
+	p_list	*tmp;
+	p_list	*tail;
+	p_list	*before_tail;
 
-	if (!src || !*src || !(*src)->next)
-		return ;
-	temp = *src;
-	while (temp->next->next)
-		temp = temp->next;
-	last = temp->next;
-	temp->next = NULL;
-	last->next = *src;
-	*src = last;
+	tail = ft_lstlast(*stack);
+	before_tail = stack_before_last(*stack);
+	tmp = *stack;
+	*stack = tail;
+	(*stack)->next = tmp;
+	before_tail->next = NULL;
 }
 
 void reverse_rotate(p_list **stack, char n)
@@ -35,6 +40,13 @@ void reverse_rotate(p_list **stack, char n)
 	ft_putstr_fd("rr", 1);
 	ft_putchar_fd(n, 1);
 	ft_putchar_fd('\n', 1);
+}
+
+void reverse_rotate_both(p_list **stack_a,p_list **stack_b)
+{
+	ft_reverse_rotate(stack_a);
+	ft_reverse_rotate(stack_b);
+	ft_putstr_fd("rrr\n", 1);
 }
 
 /* int main(int argc, char **argv)

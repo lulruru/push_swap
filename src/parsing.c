@@ -6,7 +6,7 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:44:14 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/07 00:00:05 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/18 13:44:15 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,33 +76,11 @@ int ft_sorted(p_list *stack)
 	return (1);
 }
 
-void indexer(p_list *stack_a, int size)
+int ft_nbr_abs(int nb)
 {
-	p_list *lst;
-	p_list *high;
-	int		data;
-	
-	while (--size > 0)
-	{
-		lst = stack_a;
-		data = INT_MIN;
-		high = NULL;
-		while (lst)
-		{
-			if (lst->data == INT_MIN && lst->index == 0)
-				lst->index = 1;
-			if (lst->data > data && lst->index == 0)
-			{
-				data = lst->data;
-				high = lst;
-				lst = stack_a;
-			}
-			else
-				lst = lst-> next;
-		}
-		if(high != NULL)
-			high->index = size;
-	}
+	if (nb < 0)
+		return (nb *= -1);
+	return (nb);
 }
 /* int main(int ac, char **av)
 {

@@ -6,7 +6,7 @@
 #    By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/07 15:22:58 by russelenc         #+#    #+#              #
-#    Updated: 2023/02/07 17:16:49 by russelenc        ###   ########.fr        #
+#    Updated: 2023/02/18 17:30:22 by russelenc        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = push_swap
 SRC_DIR = src
 
 SRC = ft_lst.c algo3.c ft_push.c ft_reverse_rotate.c \
-		ft_rotate.c ft_swap.c parsing.c general_utils.c main.c
+		ft_rotate.c ft_swap.c parsing.c general_utils.c main.c \
+		big_algo.c cost.c index.c ft_move_cost.c
 
 SRCS = $(addprefix $(SRC_DIR)/,$(SRC))
 SRCCO = $(SRCS:.c=.o)

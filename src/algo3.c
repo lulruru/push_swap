@@ -6,7 +6,7 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:24:40 by rencarna          #+#    #+#             */
-/*   Updated: 2023/02/07 11:55:06 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/17 17:26:25 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,4 @@ void	algo3(p_list **stack_a)
 		reverse_rotate(stack_a, 'a');
 	if ((*stack_a)->index > (*stack_a)->next->index)
 		swap(stack_a, 'a');
-	printdta(*stack_a);
 }

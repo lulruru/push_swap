@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:33:56 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/06 15:23:16 by rencarna         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:31:49 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,17 @@
 
 /*Décale d’une position vers le haut tous les élements de la pile.
 Le premier élément devient le dernier.*/
+
 void	ft_rotate(p_list **src)
 {
 	p_list	*tmp;
-	int		first;
+	p_list	*last;
 
-	if (!src || !(*src)->next)
-		return ;
 	tmp = *src;
-	first = tmp->data;
-	while (tmp->next)
-	{
-		tmp->data = tmp ->next->data;
-		tmp = tmp->next;
-	}
-	tmp->data = first;
+	*src = (*src)->next;
+	last = ft_lstlast(*src);
+	tmp->next = NULL;
+	last->next = tmp;
 }
 
 void	rotate(p_list **stack, char n)

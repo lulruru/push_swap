@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:51:40 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/06 15:33:07 by rencarna         ###   ########.fr       */
+/*   Updated: 2023/02/18 18:11:56 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 void ft_push(p_list **src, p_list **target)
 {
-	p_list *tmp;
-	p_list *elem;
+	p_list	*tmp;
 
-	if (!*src)
+	if (*src == NULL)
 		return ;
-	elem = (*src)->next;
-	tmp = *src;
-	tmp->next = *target;
-	*target = tmp;
-	*src = elem;
+	tmp = (*src)->next;
+	(*src)->next = *target;
+	*target = *src;
+	*src = tmp;
 }
 
 void push (p_list **src, p_list **target, char n)
