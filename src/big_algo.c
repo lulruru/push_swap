@@ -6,7 +6,7 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:45:47 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 20:13:08 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/21 18:08:07 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ void push3(p_list **stack_a,p_list **stack_b)
 		push(stack_a,stack_b, 'b');
 		pushed++;
 	}
+	printf("============\n");
+	printf("stack_a : ");
+	printdta(*stack_a);
+	printf("stack_b : ");
+	printdta(*stack_b);
+	printf("============\n");
 }
 
 void ft_tri_a(p_list **stack_a)
@@ -72,12 +78,24 @@ void ft_tri_a(p_list **stack_a)
 void ft_sort(p_list **stack_a, p_list **stack_b)
 {
 	push3(stack_a,stack_b);
-	algo3(stack_a);
+	algo3(stack_a);\
+	printf("=====AFTER TRI=====\n");
+	printf("stack_a : ");
+	printdta(*stack_a);
+	printf("stack_b : ");
+	printdta(*stack_b);
+	printf("============\n");
  	while (*stack_b)
 	{
 		ft_target_best_pos(stack_a, stack_b);
 		ft_cost(stack_a, stack_b);
 		ft_less_possible_move(stack_a,stack_b);
+		printf("============\n");
+		printf("stack_a : ");
+		printdta(*stack_a);
+		printf("stack_b : ");
+		printdta(*stack_b);
+		printf("============\n");
 	}
 	if (!ft_sorted(*stack_a))
 		ft_tri_a(stack_a);

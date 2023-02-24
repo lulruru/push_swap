@@ -6,7 +6,7 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:38:34 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 17:31:02 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/21 18:05:27 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		ft_nbr_abs(int nb);
 /*          STACK UTILS         */
 void	swapboth(p_list **stack_a, p_list **stack_b);
 void	swap(p_list **stack, char c);
-void	ft_swap(p_list **stack);
+void	ft_swap(p_list *stack);
 void	ft_rotate(p_list **src);
 void	rotate(p_list **stack, char n);
 void	rotate2(p_list **stack_a, p_list **stack_b);

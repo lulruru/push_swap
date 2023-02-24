@@ -6,7 +6,7 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:59:34 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 19:37:46 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/21 17:56:55 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,15 @@ int main(int ac, char **av)
 	size = lstsize(stack_a);
 	printdta(stack_a);
 	ft_indexer(stack_a, size + 1);
-	tmp = stack_a;
+	tmp = stack_a;//a suppriner
+	while (tmp)
+	{
+		printf("======================\n");
+		printf("tmp->index %d\n", tmp->index);
+		printf("tmp->data %d\n", tmp->data);
+		printf("======================\n");
+		tmp = tmp->next;
+	}//a supprimer
 	push_swap(&stack_a, &stack_b, size);
 	printdta(stack_a);
 	ft_free(&stack_a);

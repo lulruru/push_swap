@@ -6,7 +6,7 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:17:06 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 19:35:44 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/21 17:20:16 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void ft_rotate_both(p_list **stack_a, p_list **stack_b, int *cost_a, int *cost_b
 	while((*cost_a) > 0 && (*cost_b) > 0)
 	{
 		(*cost_a)--;
-		(*cost_b)++;
+		(*cost_b)--;
 		rotate2(stack_a, stack_b);
 	}
 }

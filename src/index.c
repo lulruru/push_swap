@@ -6,7 +6,7 @@
 /*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:12:11 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 19:21:26 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/21 17:50:17 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,13 +143,18 @@ int ft_target(p_list **stack,int index_b, int target_i, int target_p)
 	tmp = *stack;
 	while (tmp)
 	{
+		
 		if (tmp->index < target_i)
 		{
+			printf("ll");
 			target_i = tmp->index;
 			target_p = tmp->pos;
 		}
+		printf("\ntarget pos : %d\n", target_p);
+		printf("tmp->index : %d\n", tmp->index);
 		tmp = tmp->next;
 	}
+	printf("\ntarget pos end : %d\n", target_p);
 	return (target_p);
 }
 /*
@@ -161,10 +166,17 @@ void	ft_target_best_pos(p_list **stack_a, p_list **stack_b)
 {
 	p_list *tmp;
 	int	target_p;
+	p_list *tmp2;
 
 	tmp = *stack_b;
 	ft_init_pos(stack_a);
 	ft_init_pos(stack_b);
+	tmp2 = *stack_a;
+	while(tmp2)
+	{
+		printf("pos : %d\n", tmp2->pos);
+		tmp2 = tmp2->next;
+	}
 	target_p = 0;
 	while (tmp)
 	{
