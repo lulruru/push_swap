@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:01:19 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 19:23:41 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:37 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
-void	addback(p_list **lst, p_list *new)
+void	addback(t_list **lst, t_list *new)
 {
-	p_list *tmp;
+	t_list	*tmp;
 
 	if (*lst)
 	{
@@ -26,16 +25,16 @@ void	addback(p_list **lst, p_list *new)
 		*lst = new;
 }
 
-void	ft_lstaddfront(p_list **lst, p_list *new)
+void	ft_lstaddfront(t_list **lst, t_list *new)
 {
-	if(lst)
+	if (lst)
 	{
 		new->next = *lst;
 		*lst = new;
 	}
 }
 
-p_list	*ft_lstlast(p_list *liste)
+t_list	*ft_lstlast(t_list *liste)
 {
 	if (!liste)
 		return (NULL);
@@ -44,12 +43,12 @@ p_list	*ft_lstlast(p_list *liste)
 	return (liste);
 }
 
-p_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(int content)
 {
-	p_list *new;
-	
-	new = malloc(sizeof(p_list));
-	if(!new)
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
 		return (NULL);
 	new->data = content;
 	new->index = 0;
@@ -61,7 +60,7 @@ p_list	*ft_lstnew(int content)
 	return (new);
 }
 
-int	lstsize(p_list *lst)
+int	lstsize(t_list *lst)
 {
 	int	i;
 
@@ -73,4 +72,3 @@ int	lstsize(p_list *lst)
 	}
 	return (i);
 }
-

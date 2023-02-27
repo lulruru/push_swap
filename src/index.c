@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:12:11 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/21 17:50:17 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 16:33:21 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ a chaque elemt du plus petit au plus grand
     INDEX  [5] [3] [4] [2] [1]
 
 */
-void ft_indexer(p_list *stack_a, int size)
+void	ft_indexer(t_list *stack_a, int size)
 {
-	p_list *lst;
-	p_list *high;
+	t_list	*lst;
+	t_list	*high;
 	int		data;
-	
+
 	while (--size > 0)
 	{
 		lst = stack_a;
@@ -58,9 +58,9 @@ a chaque element de la stack
 ca va nous permettre de calculer le cout pour changer un element
 de position.
 */
-static void ft_init_pos(p_list **stack)
+static void	ft_init_pos(t_list **stack)
 {
-	p_list *tmp;
+	t_list	*tmp;
 	int		i;
 
 	i = 0;
@@ -76,11 +76,12 @@ static void ft_init_pos(p_list **stack)
 ft_lowest_index_pos fonction qui permet de recuperer la position
 de l'index le plus faible
 */
-int	ft_lowest_index_pos(p_list **stack)
+
+int	ft_lowest_index_pos(t_list **stack)
 {
-	int low_p;
-	int	low_i;
-	p_list *tmp;
+	int		low_p;
+	int		low_i;
+	t_list	*tmp;
 
 	low_i = INT_MAX;
 	tmp = *stack;
@@ -97,7 +98,6 @@ int	ft_lowest_index_pos(p_list **stack)
 	}
 	return (low_p);
 }
-
 
 /*
 ft_target fonction qui permet de regarder ou est ce que dans la pile a
@@ -124,14 +124,15 @@ on va comparer les index.
 *		target_p sera donc a la troisieme position.
 */
 
-int ft_target(p_list **stack,int index_b, int target_i, int target_p)
+int	ft_target(t_list **stack, int index_b, \
+				int target_i, int target_p)
 {
-	p_list *tmp;
-	
+	t_list	*tmp;
+
 	tmp = *stack;
 	while (tmp)
 	{
-		if (tmp->index > index_b && tmp->index < target_i )
+		if (tmp->index > index_b && tmp->index < target_i)
 		{
 			target_i = tmp->index;
 			target_p = tmp->pos;
@@ -143,18 +144,13 @@ int ft_target(p_list **stack,int index_b, int target_i, int target_p)
 	tmp = *stack;
 	while (tmp)
 	{
-		
 		if (tmp->index < target_i)
 		{
-			printf("ll");
 			target_i = tmp->index;
 			target_p = tmp->pos;
 		}
-		printf("\ntarget pos : %d\n", target_p);
-		printf("tmp->index : %d\n", tmp->index);
 		tmp = tmp->next;
 	}
-	printf("\ntarget pos end : %d\n", target_p);
 	return (target_p);
 }
 /*
@@ -162,25 +158,25 @@ Fonction qui permet d'attribuer une valeur a la variable target
 de la structure. de cette maniere chaque element du tableau
 possede la sa position dans la liste des elements.
 */
-void	ft_target_best_pos(p_list **stack_a, p_list **stack_b)
+
+void	ft_target_best_pos(t_list **stack_a, t_list **stack_b)
 {
-	p_list *tmp;
-	int	target_p;
-	p_list *tmp2;
+	t_list	*tmp;
+	int		target_p;
+	t_list	*tmp2;
 
 	tmp = *stack_b;
 	ft_init_pos(stack_a);
 	ft_init_pos(stack_b);
 	tmp2 = *stack_a;
-	while(tmp2)
+	while (tmp2)
 	{
-		printf("pos : %d\n", tmp2->pos);
 		tmp2 = tmp2->next;
 	}
 	target_p = 0;
 	while (tmp)
 	{
-		target_p = ft_target(stack_a,tmp->index, INT_MAX, target_p);
+		target_p = ft_target(stack_a, tmp->index, INT_MAX, target_p);
 		tmp->target = target_p;
 		tmp = tmp->next;
 	}

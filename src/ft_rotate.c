@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:33:56 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 13:31:49 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:26 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 /*Décale d’une position vers le haut tous les élements de la pile.
 Le premier élément devient le dernier.*/
 
-void	ft_rotate(p_list **src)
+void	ft_rotate(t_list **src)
 {
-	p_list	*tmp;
-	p_list	*last;
+	t_list	*tmp;
+	t_list	*last;
 
 	tmp = *src;
 	*src = (*src)->next;
@@ -27,7 +27,7 @@ void	ft_rotate(p_list **src)
 	last->next = tmp;
 }
 
-void	rotate(p_list **stack, char n)
+void	rotate(t_list **stack, char n)
 {
 	ft_rotate(stack);
 	ft_putchar_fd('r', 1);
@@ -35,7 +35,7 @@ void	rotate(p_list **stack, char n)
 	ft_putchar_fd('\n', 1);
 }
 
-void	rotate2(p_list **stack_a, p_list **stack_b)
+void	rotate2(t_list **stack_a, t_list **stack_b)
 {
 	ft_rotate(stack_a);
 	ft_rotate(stack_b);
@@ -44,9 +44,9 @@ void	rotate2(p_list **stack_a, p_list **stack_b)
 
 /* int main(int argc, char **argv)
 {
-    p_list *pile_a = NULL;
-    p_list *pile_b = NULL;
-    p_list *temp = NULL;
+    t_list *pile_a = NULL;
+    t_list *pile_b = NULL;
+    t_list *temp = NULL;
     int i;
 
     if (argc != 7)
@@ -56,7 +56,7 @@ void	rotate2(p_list **stack_a, p_list **stack_b)
     }
     for (i = 1; i <= 3; i++)
     {
-        temp = (p_list *)malloc(sizeof(p_list));
+        temp = (t_list *)malloc(sizeof(t_list));
         temp->data = atoi(argv[i]);
         temp->next = pile_a;
         pile_a = temp;
@@ -64,7 +64,7 @@ void	rotate2(p_list **stack_a, p_list **stack_b)
 
     for (i = 4; i <= 6; i++)
     {
-        temp = (p_list *)malloc(sizeof(p_list));
+        temp = (t_list *)malloc(sizeof(t_list));
         temp->data = atoi(argv[i]);
         temp->next = pile_b;
         pile_b = temp;

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_move_cost.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:17:06 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/21 17:20:16 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:35 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_reverse_rotate_cost(p_list **stack_a, p_list **stack_b, int *cost_a, int *cost_b)
+void	ft_reverse_rotate_cost(t_list **stack_a, t_list **stack_b, \
+										int *cost_a, int *cost_b)
 {
 	while ((*cost_a) < 0 && (*cost_b) < 0)
 	{
@@ -22,9 +23,9 @@ void ft_reverse_rotate_cost(p_list **stack_a, p_list **stack_b, int *cost_a, int
 	}
 }
 
-void ft_rotate_cost(p_list **stack, int *cost, int n)
+void	ft_rotate_cost(t_list **stack, int *cost, int n)
 {
-	while((*cost))
+	while ((*cost))
 	{
 		if ((*cost) > 0 && n == 1)
 		{
@@ -49,9 +50,10 @@ void ft_rotate_cost(p_list **stack, int *cost, int n)
 	}
 }
 
-void ft_rotate_both(p_list **stack_a, p_list **stack_b, int *cost_a, int *cost_b)
+void	ft_rotate_both(t_list **stack_a, t_list **stack_b, \
+								int *cost_a, int *cost_b)
 {
-	while((*cost_a) > 0 && (*cost_b) > 0)
+	while ((*cost_a) > 0 && (*cost_b) > 0)
 	{
 		(*cost_a)--;
 		(*cost_b)--;
@@ -59,7 +61,7 @@ void ft_rotate_both(p_list **stack_a, p_list **stack_b, int *cost_a, int *cost_b
 	}
 }
 
-void ft_move_cost(p_list **stack_a, p_list **stack_b, int cost_a, int cost_b)
+void	ft_move_cost(t_list **stack_a, t_list **stack_b, int cost_a, int cost_b)
 {
 	if (cost_a < 0 && cost_b < 0)
 		ft_reverse_rotate_cost(stack_a, stack_b, &cost_a, &cost_b);

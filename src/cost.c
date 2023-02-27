@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:08:53 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 19:35:07 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:40 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_cost(p_list **stack_a, p_list **stack_b)
+void	ft_cost(t_list **stack_a, t_list **stack_b)
 {
-	p_list *tmp_a;
-	p_list *tmp_b;
+	t_list	*tmp_a;
+	t_list	*tmp_b;
 	int		size_a;
 	int		size_b;
 
@@ -35,9 +35,9 @@ void ft_cost(p_list **stack_a, p_list **stack_b)
 	}
 }
 
-void ft_less_possible_move(p_list **stack_a, p_list **stack_b)
+void	ft_less_possible_move(t_list **stack_a, t_list **stack_b)
 {
-	p_list	*tmp;
+	t_list	*tmp;
 	int		min;
 	int		cost_a;
 	int		cost_b;

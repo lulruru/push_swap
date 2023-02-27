@@ -3,28 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:37:11 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 17:57:13 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:28 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-p_list *stack_before_last(p_list *stack)
+t_list	*stack_before_last(t_list *stack)
 {
-	while(stack && stack->next && stack->next->next != NULL)
+	while (stack && stack->next && stack->next->next != NULL)
 		stack = stack->next;
 	return (stack);
 }
+
 /*Décale d’une position vers le bas tous les élements de
 la pile . Le dernier élément devient le premier*/
-void ft_reverse_rotate(p_list **stack)
+
+void	ft_reverse_rotate(t_list **stack)
 {
-	p_list	*tmp;
-	p_list	*tail;
-	p_list	*before_tail;
+	t_list	*tmp;
+	t_list	*tail;
+	t_list	*before_tail;
 
 	tail = ft_lstlast(*stack);
 	before_tail = stack_before_last(*stack);
@@ -34,7 +36,7 @@ void ft_reverse_rotate(p_list **stack)
 	before_tail->next = NULL;
 }
 
-void reverse_rotate(p_list **stack, char n)
+void	reverse_rotate(t_list **stack, char n)
 {
 	ft_reverse_rotate(stack);
 	ft_putstr_fd("rr", 1);
@@ -42,7 +44,7 @@ void reverse_rotate(p_list **stack, char n)
 	ft_putchar_fd('\n', 1);
 }
 
-void reverse_rotate_both(p_list **stack_a,p_list **stack_b)
+void	reverse_rotate_both(t_list **stack_a, t_list **stack_b)
 {
 	ft_reverse_rotate(stack_a);
 	ft_reverse_rotate(stack_b);
@@ -51,9 +53,9 @@ void reverse_rotate_both(p_list **stack_a,p_list **stack_b)
 
 /* int main(int argc, char **argv)
 {
-    p_list *pile_a = NULL;
-    p_list *pile_b = NULL;
-    p_list *temp = NULL;
+    t_list *pile_a = NULL;
+    t_list *pile_b = NULL;
+    t_list *temp = NULL;
     int i;
 
     if (argc != 7)
@@ -63,7 +65,7 @@ void reverse_rotate_both(p_list **stack_a,p_list **stack_b)
     }
     for (i = 1; i <= 3; i++)
     {
-        temp = (p_list *)malloc(sizeof(p_list));
+        temp = (t_list *)malloc(sizeof(t_list));
         temp->data = atoi(argv[i]);
         temp->next = pile_a;
         pile_a = temp;
@@ -71,7 +73,7 @@ void reverse_rotate_both(p_list **stack_a,p_list **stack_b)
 
     for (i = 4; i <= 6; i++)
     {
-        temp = (p_list *)malloc(sizeof(p_list));
+        temp = (t_list *)malloc(sizeof(t_list));
         temp->data = atoi(argv[i]);
         temp->next = pile_b;
         pile_b = temp;

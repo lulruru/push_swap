@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:44:14 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 13:44:15 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:13 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ int	ft_pars(int ac, char **av)
 	return (0);
 }
 
-p_list	*do_list(int ac, char **av)
+t_list	*do_list(int ac, char **av)
 {
-	p_list		*new;
-	p_list		*stack_a;
+	t_list		*new;
+	t_list		*stack_a;
 	int			i;
 	long int	nb;
 
@@ -56,7 +56,7 @@ p_list	*do_list(int ac, char **av)
 	while (i < ac)
 	{
 		nb = ft_atol(av[i]);
-		if(nb > INT_MAX || nb < INT_MIN)
+		if (nb > INT_MAX || nb < INT_MIN)
 			ft_error(&stack_a, NULL);
 		new = ft_lstnew(nb);
 		addback(&stack_a, new);
@@ -65,18 +65,18 @@ p_list	*do_list(int ac, char **av)
 	return (stack_a);
 }
 
-int ft_sorted(p_list *stack)
+int	ft_sorted(t_list *stack)
 {
-	while(stack->next)
+	while (stack->next)
 	{
 		if (stack->data > stack->next->data)
-			return(0);
+			return (0);
 		stack = stack->next;
 	}
 	return (1);
 }
 
-int ft_nbr_abs(int nb)
+int	ft_nbr_abs(int nb)
 {
 	if (nb < 0)
 		return (nb *= -1);

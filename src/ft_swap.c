@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:20:04 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/21 18:05:40 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:23 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 /* Intervertit les 2 premiers éléments au sommet de la pile. 
 Ne fait rien s’il n’y en a qu’un ou aucun. */
-void	ft_swap(p_list *stack)
+void	ft_swap(t_list *stack)
 {
 	int	tmp;
 
-	if(stack == NULL && stack->next == NULL)
+	if (stack == NULL && stack->next == NULL)
 		return ;
 	tmp = stack->data;
 	stack->data = stack->next->data;
@@ -27,7 +27,7 @@ void	ft_swap(p_list *stack)
 	stack->next->index = tmp;
 }
 
-void swap(p_list **stack, char c)
+void	swap(t_list **stack, char c)
 {
 	ft_swap(*stack);
 	ft_putchar_fd('s', 1);
@@ -35,7 +35,7 @@ void swap(p_list **stack, char c)
 	ft_putchar_fd('\n', 1);
 }
 
-void swapboth(p_list **stack_a, p_list **stack_b)
+void	swapboth(t_list **stack_a, t_list **stack_b)
 {
 	ft_swap(*stack_a);
 	ft_swap(*stack_b);

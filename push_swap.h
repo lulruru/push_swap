@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:38:34 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/21 18:05:27 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:57:06 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <limits.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
+# include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
@@ -27,56 +27,55 @@ typedef struct s_list
 	int				cost_a;
 	int				cost_b;
 	struct s_list	*next;
-}	p_list;
-
+}	t_list;
 
 /*          LISTE OPERATION           */
-p_list	*ft_lstlast(p_list *liste);
-p_list	*ft_lstnew(int content);
-void	addback(p_list **lst, p_list *new);
-int		lstsize(p_list *lst);
-void	indexer(p_list *stack_a, int size);
-void	ft_lstaddfront(p_list **lst, p_list *new);
+t_list	*ft_lstlast(t_list *liste);
+t_list	*ft_lstnew(int content);
+void	addback(t_list **lst, t_list *new);
+int		lstsize(t_list *lst);
+void	indexer(t_list *stack_a, int size);
+void	ft_lstaddfront(t_list **lst, t_list *new);
 
 /*          UTILS          */
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 long	ft_atol(char *str);
-p_list	*do_list(int ac, char **av);
-void	ft_error(p_list **stack_a, p_list **stack_b);
-void	ft_free(p_list **stack);
-int		ft_sorted(p_list *stack);
+t_list	*do_list(int ac, char **av);
+void	ft_error(t_list **stack_a, t_list **stack_b);
+void	ft_free(t_list **stack);
+int		ft_sorted(t_list *stack);
 int		ft_pars(int ac, char **av);
 int		ft_nbr_abs(int nb);
 
 /*          STACK UTILS         */
-void	swapboth(p_list **stack_a, p_list **stack_b);
-void	swap(p_list **stack, char c);
-void	ft_swap(p_list *stack);
-void	ft_rotate(p_list **src);
-void	rotate(p_list **stack, char n);
-void	rotate2(p_list **stack_a, p_list **stack_b);
-void	ft_push(p_list **src, p_list **target);
-void	push(p_list **src, p_list **target, char n);
-void	reverse_rotate(p_list **stack, char n);
-void	ft_reverse_rotate(p_list **src);
-void	printdta(p_list *stacka);
-void	reverse_rotate_both(p_list **stack_a,p_list **stack_b);
+void	swapboth(t_list **stack_a, t_list **stack_b);
+void	swap(t_list **stack, char c);
+void	ft_swap(t_list *stack);
+void	ft_rotate(t_list **src);
+void	rotate(t_list **stack, char n);
+void	rotate2(t_list **stack_a, t_list **stack_b);
+void	ft_push(t_list **src, t_list **target);
+void	push(t_list **src, t_list **target, char n);
+void	reverse_rotate(t_list **stack, char n);
+void	ft_reverse_rotate(t_list **src);
+void	printdta(t_list *stacka);
+void	reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 
 /*          ALGO         */
-void	algo3(p_list **stack_a);
-void	ft_sort(p_list **stack_a, p_list **stack_b);
-void	push3(p_list **stack_a,p_list **stack_b);
-void ft_less_possible_move(p_list **stack_a, p_list **stack_b);;
+void	algo3(t_list **stack_a);
+void	ft_sort(t_list **stack_a, t_list **stack_b);
+void	push3(t_list **stack_a, t_list **stack_b);
+void	ft_less_possible_move(t_list **stack_a, t_list **stack_b);
 
 /*          COST         */
-void	ft_move_cost(p_list **stack_a, p_list **stack_b, int cost_a, int cost_b);
-void	ft_cost(p_list **stack_a, p_list **stack_b);
+void	ft_move_cost(t_list **stack_a, t_list **stack_b, \
+						int cost_a, int cost_b);
+void	ft_cost(t_list **stack_a, t_list **stack_b);
 
 /*          INDEX/POS         */
-int		ft_lowest_index_pos(p_list **stack);
-void	ft_target_best_pos(p_list **stack_a, p_list **stack_b);
-void	ft_indexer(p_list *stack_a, int size);
-
+int		ft_lowest_index_pos(t_list **stack);
+void	ft_target_best_pos(t_list **stack_a, t_list **stack_b);
+void	ft_indexer(t_list *stack_a, int size);
 
 #endif

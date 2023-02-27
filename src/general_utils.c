@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:19:26 by rencarna          #+#    #+#             */
-/*   Updated: 2023/02/06 22:45:25 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:21 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ long	ft_atol(char *str)
 	return (r * sign);
 }
 
-void ft_free(p_list **stack)
+void	ft_free(t_list **stack)
 {
-	p_list *tmp;
+	t_list	*tmp;
 
-	if(!stack || !(*stack))
+	if (!stack || !(*stack))
 		return ;
-	while(*stack)
+	while (*stack)
 	{
 		tmp = (*stack)->next;
 		free(*stack);
@@ -67,7 +67,7 @@ void ft_free(p_list **stack)
 	*stack = NULL;
 }
 
-void ft_error(p_list **stack_a, p_list **stack_b)
+void	ft_error(t_list **stack_a, t_list **stack_b)
 {
 	if (stack_a == NULL || *stack_a != NULL)
 		ft_free(stack_a);

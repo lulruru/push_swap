@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:51:40 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/18 18:11:56 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:32 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_push(p_list **src, p_list **target)
+void	ft_push(t_list **src, t_list **target)
 {
-	p_list	*tmp;
+	t_list	*tmp;
 
 	if (*src == NULL)
 		return ;
@@ -24,7 +24,7 @@ void ft_push(p_list **src, p_list **target)
 	*src = tmp;
 }
 
-void push (p_list **src, p_list **target, char n)
+void	push(t_list **src, t_list **target, char n)
 {
 	ft_push(src, target);
 	ft_putchar_fd('p', 1);
@@ -34,9 +34,9 @@ void push (p_list **src, p_list **target, char n)
 
 /* int main(int argc, char **argv)
 {
-    p_list *pile_a = NULL;
-    p_list *pile_b = NULL;
-    p_list *temp = NULL;
+    t_list *pile_a = NULL;
+    t_list *pile_b = NULL;
+    t_list *temp = NULL;
     int i;
 
     if (argc != 7)
@@ -46,7 +46,7 @@ void push (p_list **src, p_list **target, char n)
     }
     for (i = 1; i <= 3; i++)
     {
-        temp = (p_list *)malloc(sizeof(p_list));
+        temp = (t_list *)malloc(sizeof(t_list));
         temp->data = atoi(argv[i]);
         temp->next = pile_a;
         pile_a = temp;
@@ -54,7 +54,7 @@ void push (p_list **src, p_list **target, char n)
 
     for (i = 3; i < 6; i++)
     {
-        temp = (p_list *)malloc(sizeof(p_list));
+        temp = (t_list *)malloc(sizeof(t_list));
         temp->data = atoi(argv[i]);
         temp->next = pile_b;
         pile_b = temp;
