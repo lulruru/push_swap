@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:18:08 by russelenc         #+#    #+#             */
-/*   Updated: 2023/03/03 14:42:13 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/03/06 17:27:17 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
-#define CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include <limits.h>
 # include <stdlib.h>
@@ -27,7 +27,7 @@
 
 size_t	ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int flag);
 char	*ft_readfd(int fd, char *buffle);
 char	*cpyline(char *line);
 char	*savenext(char *buffle);
@@ -36,7 +36,8 @@ char	*ft_free_str(char *s);
 int		test(char *s);
 
 
-int ft_strcmp(char *str, char *str2);
+int		ft_strcmp(char *str, char *str2);
+void	jaideserreurs(t_list **stack_a, t_list **stack_b, char *str);
 
 
 

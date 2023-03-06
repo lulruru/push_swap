@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:07:33 by ruru              #+#    #+#             */
-/*   Updated: 2023/03/06 10:25:12 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/03/06 16:36:25 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 size_t	ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int flag);
 char	*ft_readfd(int fd, char *buffle);
 char	*cpyline(char *line);
 char	*savenext(char *buffle);

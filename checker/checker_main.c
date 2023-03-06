@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   checker_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:30:52 by russelenc         #+#    #+#             */
-/*   Updated: 2023/03/06 10:26:07 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/03/06 17:55:47 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 #include <string.h>
 
-void	read_instruction(t_list **stack_a, t_list **stack_b, char *str)
+void	*read_instruction(t_list **stack_a, t_list **stack_b, char *str)
 {
 	if (ft_strcmp(str, "sa\n"))
 		ft_swap(*stack_a);
@@ -33,53 +33,55 @@ void	read_instruction(t_list **stack_a, t_list **stack_b, char *str)
 		ft_reverse_rotate(stack_b);
 	else if (ft_strcmp(str, "rrr\n"))
 		reverse_rotate_both_check(stack_a, stack_b);
-	
+	else
+		jaideserreurs(stack_a, stack_b, str);
+	return (get_next_line(0, 0));
+
 }
-void printdta(t_list *stacka)
+
+void	printdta(t_list *stacka)
 {
 	while (stacka)
 	{
 		printf("%d ", stacka->data);
-		stacka = stacka->next;	
+		stacka = stacka->next;
 	}
 	printf("\n");
 }
 
-void boucle_read(t_list *stack_a, t_list *stack_b)
+void	boucle_read(t_list *stack_a, t_list *stack_b)
 {
-	char *str;
+	char	*str;
+	char	*tmp;
 
-	str = get_next_line(0);
+	printdta(stack_b);
+	str = get_next_line(0, 0);
 	while (str != 0)
 	{
-		read_instruction(&stack_a, &stack_b, str);
+		tmp = str;
+		str = read_instruction(&stack_a, &stack_b, str);
 		free(str);
-		str = get_next_line(0);
 	}
-	if (!stack_b && stack_a && ft_sorted(stack_a))
+
+	if (ft_sorted(stack_a))
 		write(1, "OK", 2);
 	else
 		write(1, "KO", 2);
-	
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {	
 	t_list	*stack_a;
 	t_list	*stack_b;
 
-	if(ac < 2)
+	if (ac < 2)
 		return (0); 
-/* 	if (ft_pars(ac, av))
-		ft_error(NULL, NULL); */
+	if (ft_pars(ac, av))
+		ft_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = do_list(ac, av);
-	if (ft_sorted(stack_a))
-	{
-		ft_free(&stack_a);
-		return(0);
-	}
-	boucle_read(stack_a, stack_a);
+	boucle_read(stack_a, stack_b);
 	ft_free(&stack_a);
 	ft_free(&stack_b);
-} 
+	return (0);
+}

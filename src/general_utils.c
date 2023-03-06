@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:19:26 by rencarna          #+#    #+#             */
-/*   Updated: 2023/03/03 15:00:14 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/03/06 17:21:04 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,16 @@ void	ft_free(t_list **stack)
 
 void	ft_error(t_list **stack_a, t_list **stack_b)
 {
-	if (stack_a != NULL || *stack_a != NULL)
+	if (stack_a == NULL || *stack_a != NULL)
 		ft_free(stack_a);
 	if (stack_b == NULL || *stack_b != NULL)
 		ft_free(stack_a);
 	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	exit (1);
 }
 /* int main (int a, char **av)
 {
-	int	i;
+	int	i;ss
 	i = ft_atol(av[1]);
 	printf("%d", i);
 } */

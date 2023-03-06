@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:46:02 by russelenc         #+#    #+#             */
-/*   Updated: 2023/03/01 16:35:26 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/03/06 16:34:30 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,15 @@ char	*savenext(char *buffle)
 	return (free(buffle), new);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd,int flag)
 {
 	char		*line;
 	static char	*buffle;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (flag == 1)
+		return (free(buffle), NULL);
 	buffle = ft_readfd(fd, buffle);
 	if (!buffle)
 		return (free(buffle), NULL);
