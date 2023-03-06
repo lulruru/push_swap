@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:37:11 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/27 15:56:28 by rencarna         ###   ########.fr       */
+/*   Updated: 2023/03/03 15:43:31 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ void	reverse_rotate_both(t_list **stack_a, t_list **stack_b)
 	ft_putstr_fd("rrr\n", 1);
 }
 
+void	reverse_rotate_both_check(t_list **stack_a, t_list **stack_b)
+{
+	ft_reverse_rotate(stack_a);
+	ft_reverse_rotate(stack_b);
+}
 /* int main(int argc, char **argv)
 {
     t_list *pile_a = NULL;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:59:34 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/27 16:32:32 by rencarna         ###   ########.fr       */
+/*   Updated: 2023/03/02 12:55:23 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int ac, char **av)
 	ft_indexer(stack_a, size + 1);
 	push_swap(&stack_a, &stack_b, size);
 	if (ft_sorted(stack_a))
-		printf("NICE");
+		printf("\nsorted");
 	ft_free(&stack_a);
 	ft_free(&stack_b);
 }

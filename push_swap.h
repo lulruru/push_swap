@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:38:34 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/27 15:57:06 by rencarna         ###   ########.fr       */
+/*   Updated: 2023/03/03 15:43:45 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	reverse_rotate(t_list **stack, char n);
 void	ft_reverse_rotate(t_list **src);
 void	printdta(t_list *stacka);
 void	reverse_rotate_both(t_list **stack_a, t_list **stack_b);
+void	reverse_rotate_both_check(t_list **stack_a, t_list **stack_b);
 
 /*          ALGO         */
 void	algo3(t_list **stack_a);
