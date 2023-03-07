@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:12:11 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/27 16:33:21 by rencarna         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:57:36 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,25 +103,6 @@ int	ft_lowest_index_pos(t_list **stack)
 ft_target fonction qui permet de regarder ou est ce que dans la pile a
 l'element de pile b aura la meilleur position. Pour cela
 on va comparer les index.
-*	--- Exemple:
-*		target_p est initialise a INT_MAX
-*		B index: 3
-*		A indexes: 9 4 2 1 0
-*		9 > 3 && 9 < INT_MAX 	: target_p =  9
-*		4 > 3 && 4 < 9 			: target_p = 4
-*		2 < 3 && 2 < 4			: no update!
-*	target_p prend la position du 4 eme index car il est l'index le plus proche.
-*	--- Exemple:
-*		B index: 20
-*		A contains indexes: 16 4 3
-*		16 < 20					: target_pos = INT_MAX
-*		4  < 20					: target_pos = INT_MAX
-*		3  < 20					: target_pos = INT_MAX
-*		target_p n'ayant pas ete modifier, il est donc l'index le plus haut.
-*		16 < 20					: target_pos = 20
-*		4  < 20					: target_pos  = 4
-*		3  < 20					: target_pos = 3
-*		target_p sera donc a la troisieme position.
 */
 
 int	ft_target(t_list **stack, int index_b, \
@@ -163,16 +144,10 @@ void	ft_target_best_pos(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 	int		target_p;
-	t_list	*tmp2;
 
 	tmp = *stack_b;
 	ft_init_pos(stack_a);
 	ft_init_pos(stack_b);
-	tmp2 = *stack_a;
-	while (tmp2)
-	{
-		tmp2 = tmp2->next;
-	}
 	target_p = 0;
 	while (tmp)
 	{

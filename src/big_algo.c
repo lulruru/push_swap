@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:45:47 by russelenc         #+#    #+#             */
-/*   Updated: 2023/02/27 16:27:35 by rencarna         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:56:20 by russelenc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	push3(t_list **stack_a, t_list **stack_b)
 		pushed++;
 	}
 }
-
+/* Fonction qui remet de dans l'ordre les elements */
 void	ft_tri_a(t_list **stack_a)
 {
 	int	low;
@@ -65,6 +65,11 @@ void	ft_tri_a(t_list **stack_a)
 			rotate(stack_a, 'a');
 }
 
+/* 
+FILE :
+	ft_target_best_pos = indexer.c
+	ft_cost / ft_less_possible_move  = ft_cost.c
+*/
 void	ft_sort(t_list **stack_a, t_list **stack_b)
 {
 	push3(stack_a, stack_b);
