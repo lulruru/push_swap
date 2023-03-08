@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:46:02 by russelenc         #+#    #+#             */
-/*   Updated: 2023/03/07 16:02:41 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/03/08 16:17:59 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*cpyline(char *line)
 		len++;
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return (NULL);
+		return (free(str), NULL);
 	while (i < len)
 	{
 		str[i] = line[i];
@@ -89,7 +89,7 @@ char	*savenext(char *buffle)
 	return (free(buffle), new);
 }
 
-char	*get_next_line(int fd,int flag)
+char	*get_next_line(int fd, int flag)
 {
 	char		*line;
 	static char	*buffle;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:18:08 by russelenc         #+#    #+#             */
-/*   Updated: 2023/03/07 18:59:22 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/03/08 12:39:30 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		test(char *s);
 
 
 int		ft_strcmp(char *str, char *str2);
-void	jaideserreurs(t_list **stack_a, t_list **stack_b);
+void	jaideserreurs(t_list **stack_a, t_list **stack_b,char *str);
 
 
 

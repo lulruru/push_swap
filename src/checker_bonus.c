@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:30:27 by russelenc         #+#    #+#             */
-/*   Updated: 2023/03/07 18:58:58 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/03/08 16:45:57 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,18 @@ void	freelastack(t_list **stack)
 	*stack = NULL;
 }
 
-
-void	freetout(t_list **stack_a, t_list **stack_b)
+void	freetout(t_list **stack_a, t_list **stack_b, char *str)
 {
 	freelastack(stack_a);
 	freelastack(stack_b);
-/* 	free(str); */
+	free(str);
 }
 
 
-void	jaideserreurs(t_list **stack_a, t_list **stack_b)
+void	jaideserreurs(t_list **stack_a, t_list **stack_b, char *str)
 {
-	freetout(stack_a, stack_b);
-	get_next_line(0, 1);
 	ft_putstr_fd("Error\n", 2);
+	freetout(stack_a, stack_b, str);
+	get_next_line(0, 1);
 	exit(0);
 }

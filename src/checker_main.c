@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: russelenc <russelenc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rencarna <rencarna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:30:52 by russelenc         #+#    #+#             */
-/*   Updated: 2023/03/07 18:59:07 by russelenc        ###   ########.fr       */
+/*   Updated: 2023/03/08 15:32:36 by rencarna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	*read_instruction(t_list **stack_a, t_list **stack_b, char *str)
 	else if (ft_strcmp(str, "rrr\n"))
 		reverse_rotate_both_check(stack_a, stack_b);
 	else
-		jaideserreurs(stack_a, stack_b);
+		jaideserreurs(stack_a, stack_b, str);
 	return (get_next_line(0, 0));
 
 }
 
-void	printdta(t_list *stacka)
+/* void	printdta(t_list *stacka)
 {
 	while (stacka)
 	{
@@ -47,19 +47,21 @@ void	printdta(t_list *stacka)
 		stacka = stacka->next;
 	}
 	printf("\n");
-}
+} */
 
-void	boucle_read(t_list *stack_a, t_list *stack_b)
+void	boucle_read(t_list *stack_a, t_list *stack_b, char *str)
 {
-	char	*str;
+	char	*tmp;
 
-	str = get_next_line(0, 0);
+
 	while (str != 0)
 	{
+		tmp = str;
 		str = read_instruction(&stack_a, &stack_b, str);
-		free(str);
+		free(tmp);
 	}
-	if (ft_sorted(stack_a))
+
+	if (stack_b == NULL && ft_sorted(stack_a))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
@@ -69,16 +71,17 @@ int	main(int ac, char **av)
 {	
 	t_list	*stack_a;
 	t_list	*stack_b;
+	char 	*str;
 
-	if (ac < 2)
-		return (0); 
+	if (ac <= 2)
+		return (0);
 	if (ft_pars(ac, av))
 		ft_error(NULL, NULL);
+	str = get_next_line(0, 0);
 	stack_b = NULL;
 	stack_a = do_list(ac, av);
-	boucle_read(stack_a, stack_b);
+	boucle_read(stack_a, stack_b, str);
 	ft_free(&stack_a);
 	ft_free(&stack_b);
-	
 	return (0);
 }
